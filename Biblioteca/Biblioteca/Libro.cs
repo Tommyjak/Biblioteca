@@ -19,5 +19,7 @@ namespace Biblioteca
 
         private string _isbn;
         public string isbn { get; set; }
+
+        private string tommiPuzza;
     }
 }

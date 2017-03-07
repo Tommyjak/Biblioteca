@@ -18,6 +18,8 @@ namespace Biblioteca
         private DateTime _dataNascita;
         public DateTime dataNascita { get; set; }
 
+        public string cdf;
+
         //public List<Libro> = libriUtente;
 
         public Utente (string nome, string cognome, string codFisc, DateTime dataNascita)
