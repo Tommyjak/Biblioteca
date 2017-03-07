@@ -8,7 +8,7 @@ namespace Biblioteca
 {
     static class Seeder
     {
-        public static string generateLibro (Utente m, string cdf)
+        public static string generateUtente (Utente m, string cdf)
         {
             string[] nomi = {"Gionni", "Giorgio", "Russell", "Steph", "Beppe", "Giuvà", "Pino", "Arnaldo", "Gisella", "Beatrice", "Gionna", "Manuel", "LeBron", "Klay", "Maria", "Sigfrido", "Gioachino", "Brambilla", "Calogero", "Michael", "J.J.", "Luigi", "Sara", "Gregoria", "Kevin" };
             string[] cognomi = {"Lione", "Busanelli", "Ovestbrook", "Curry", "Vessicchio", "Rossi", "Abete", "Birindelli", "Pelù", "Soncini", "Mortara", "Mopu", "James", "Thompson", "Gonzaga", "Nebbiante", "Da Reggio", "Fumagalli", "Scalabrine", "Jordan", "Aradori", "Buffon", "De Gregori", "Da Lentini", "Durant" };
@@ -26,7 +26,7 @@ namespace Biblioteca
                 {
                     cdf = cdf + car[rnd.Next(0, 35)];
                 }
-                Utente m = new Utente(nomi[rnd.Next(0, 199)], cognomi[rnd.Next(0, 199)], cdf, 0/*NON HO CAPITO COME FUNZIONA DATETIME */ );
+                Utente u = new Utente(nomi[rnd.Next(0, 199)], cognomi[rnd.Next(0, 199)], cdf, 0/*NON HO CAPITO COME FUNZIONA DATETIME */ );
             }
             return /*MI SA CHE DEVO PRIMA FARE UNA LISTA DI UTENTI, DEVO LAVORARCI ANCORA */; 
         }

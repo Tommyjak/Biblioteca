@@ -35,17 +35,17 @@
             // UserLB
             // 
             this.UserLB.FormattingEnabled = true;
-            this.UserLB.Location = new System.Drawing.Point(34, 24);
+            this.UserLB.Location = new System.Drawing.Point(12, 24);
             this.UserLB.Name = "UserLB";
-            this.UserLB.Size = new System.Drawing.Size(305, 264);
+            this.UserLB.Size = new System.Drawing.Size(269, 264);
             this.UserLB.TabIndex = 0;
             // 
             // BookLB
             // 
             this.BookLB.FormattingEnabled = true;
-            this.BookLB.Location = new System.Drawing.Point(379, 24);
+            this.BookLB.Location = new System.Drawing.Point(432, 24);
             this.BookLB.Name = "BookLB";
-            this.BookLB.Size = new System.Drawing.Size(305, 264);
+            this.BookLB.Size = new System.Drawing.Size(269, 264);
             this.BookLB.TabIndex = 1;
             // 
             // Form1
