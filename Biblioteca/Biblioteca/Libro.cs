@@ -8,27 +8,28 @@ namespace Biblioteca
 {
     class Libro
     {
+        //string[] generiLibro = { "fantasy", "rosa", "avventura", "bambini", "classico", "giallo", "thriller", "horror" };
+
         private string _titolo;
-        public string titolo { get; set; }
+        public string titolo { get { return _titolo; } }
 
         private string _autore;
-        public string autore { get; set; }
+        public string autore { get { return _autore; } }
 
-        private string _genere;
-        public string genere { get; set; }
+        public enum genere { fantasy, rosa, avventura, bambini, classico, giallo, thriller, horror }
 
         private string _isbn;
-        public string isbn { get; set; }
+        public string isbn { get { return _isbn; } }
 
         private Boolean _prestatoLibro;
         //public Boolean prestatoLibro {get { return; }}//devo ancora guardare bene come si fa 
 
-        public Libro(string titolo, string autore, string genere, string isbn)
+        public Libro(string titolo, string autore, string isbn)
         {
             _titolo = titolo;
             _autore = autore;
-            _genere = genere;
             _isbn = isbn;
+            Console.WriteLine(describeLibro());
         }
 
         public override string ToString()
@@ -38,10 +39,10 @@ namespace Biblioteca
 
         public string describeLibro()
         {
-            string output = "TITOLO: " + titolo;
-                   output += "AUTORE: " + autore;
-                   output += "GENERE: " + genere;
-                   output += "ISBN: " + isbn;
+            string output = "TITOLO: " + titolo + "\r\n";
+                   output += "AUTORE: " + autore + "\r\n";
+                   output += "GENERE: " + genere.avventura + "\r\n";//devo finire di guardare l'enum
+                   output += "ISBN: " + isbn + "\r\n";
 
             return output;
         }

@@ -27,5 +27,7 @@ namespace Biblioteca
                 UserLB.Items.Add(utenti[i].describeSeeder());
             }
         }
+
+        Libro l = new Libro("Amore", "J.J.Reddick", "INTH232J1");
     }
 }
