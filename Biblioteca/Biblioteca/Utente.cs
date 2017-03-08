@@ -18,8 +18,6 @@ namespace Biblioteca
         private DateTime _dataNascita;
         public DateTime dataNascita { get; set; }
 
-        public string cdf;
-
         //public List<Libro> = libriUtente;
 
         public Utente (string nome, string cognome, string codFisc, DateTime dataNascita)
@@ -34,6 +32,13 @@ namespace Biblioteca
         public override string ToString()
         {
             return (nome + ", " + cognome + ", " + dataNascita + ".");
+        }
+
+
+        public string describeSeeder()
+        {
+            string output = nome + " " + cognome + " " + dataNascita + " " + codFisc + " " + "Numero di libri posseduti: " + "(Index lista libriUtente)";
+            return output; // errore del codice fiscale da discutere e della data di nascita che fatico a comprendere.
         }
 
         public string describe()

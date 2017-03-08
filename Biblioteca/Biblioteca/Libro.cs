@@ -21,7 +21,7 @@ namespace Biblioteca
         public string isbn { get; set; }
 
         private Boolean _prestatoLibro;
-        public Boolean prestatoLibro {get {return }}//devo ancora guardare bene come si fa 
+        //public Boolean prestatoLibro {get { return; }}//devo ancora guardare bene come si fa 
 
         public Libro(string titolo, string autore, string genere, string isbn)
         {
@@ -56,7 +56,7 @@ namespace Biblioteca
             }
             else
             {
-                Console.WriteLine("Spiacenti, il libro selezionato è già stato prestato a"(/*utente che ha già il libro*/));
+                //Console.WriteLine("Spiacenti, il libro selezionato è già stato prestato a"(/*utente che ha già il libro*/));
             }
         }
 
