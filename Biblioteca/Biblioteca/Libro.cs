@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+
 
 namespace Biblioteca
 {
@@ -21,15 +23,17 @@ namespace Biblioteca
         private string _isbn;
         public string isbn { get { return _isbn; } }
 
-        private Boolean _prestatoLibro;
+        private Boolean prestatoLibro = true;
         //public Boolean prestatoLibro {get { return; }}//devo ancora guardare bene come si fa 
+
+        Random rnd = new Random();
 
         public Libro(string titolo, string autore, string isbn)
         {
             _titolo = titolo;
             _autore = autore;
             _isbn = isbn;
-            Console.WriteLine(describeLibro());
+            //Console.WriteLine(describeLibro());
         }
 
         public string describeSeeder()
@@ -43,29 +47,49 @@ namespace Biblioteca
             return (titolo + "," + autore + "," + isbn);
         }
 
+       /* public void assignGenere()
+        {
+            genere g;
+            string genereString;
+
+            switch (g)
+            {
+
+            }
+        }*/
+
         public string describeLibro()
         {
             string output = "TITOLO: " + titolo + "\r\n";
                    output += "AUTORE: " + autore + "\r\n";
-                   output += "GENERE: " + genere.avventura + "\r\n";//devo finire di guardare l'enum
+                   output += "GENERE: " + genere.fantasy + "\r\n";//devo finire di guardare l'enum
                    output += "ISBN: " + isbn + "\r\n";
 
             return output;
         }
 
+        /*public void prestaStandard(Utente u)
+        {
+            Random rnd = new Random();
+            int i = rnd.Next(0, 10);
+
+            for (int j= 0; j < i; i++)
+        }*/
+
         public void presta(Utente u)
         {
-            Boolean pl = true;
-
-            if (pl == true)
+            if (prestatoLibro == true)
             {
                 Console.WriteLine("Il prestito è andato a buon fine!");
+                prestatoLibro = false;
             }
             else
             {
-                //Console.WriteLine("Spiacenti, il libro selezionato è già stato prestato a"(/*utente che ha già il libro*/));
+                Console.WriteLine("Spiacenti,il libro è già stato prestato a ");
             }
+
         }
+     
 
 
     }

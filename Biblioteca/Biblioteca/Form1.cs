@@ -29,7 +29,7 @@ namespace Biblioteca
             }
         }
 
-        Libro l = new Libro("Amore", "J.J.Reddick", "INTH232J1");
+        //Libro l = new Libro("Amore", "J.J.Reddick", "INTH232J1"); *solo di prova*
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -38,5 +38,10 @@ namespace Biblioteca
                 BookLB.Items.Add(libri[i].describeSeeder());
             }
         }
+
+       /* private void button3_Click(object sender, EventArgs e)
+        {
+            BookLB.SelectedItem.
+        }*/
     }
 }
