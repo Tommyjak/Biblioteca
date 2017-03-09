@@ -32,6 +32,12 @@ namespace Biblioteca
             Console.WriteLine(describeLibro());
         }
 
+        public string describeSeeder()
+        {
+            string output = titolo + " / " + autore + " / " + isbn;
+            return output; // errore del codice fiscale da discutere e della data di nascita che fatico a comprendere.
+        }
+
         public override string ToString()
         {
             return (titolo + "," + autore + "," + isbn);
