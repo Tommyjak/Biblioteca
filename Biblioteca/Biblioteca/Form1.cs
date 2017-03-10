@@ -12,12 +12,13 @@ namespace Biblioteca
 {
     public partial class Form1 : Form
     {
+        private List<Libro> libriPosseduti;
         private List<Utente> utenti;
         private List<Libro> libri;
         public Form1()
         {
             libri = Seeder.generateLibro();
-            utenti = Seeder.generateUtente();
+            utenti = Seeder.generateUtente(libri);
             InitializeComponent();
         }
 
@@ -39,7 +40,13 @@ namespace Biblioteca
             }
         }
 
-       /* private void button3_Click(object sender, EventArgs e)
+        private void UserLB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BookLB.Items.Add(utenti[UserLB.SelectedIndex].libriPosseduti);
+        }
+
+
+        /* private void button3_Click(object sender, EventArgs e)
         {
             BookLB.SelectedItem.
         }*/

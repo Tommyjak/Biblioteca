@@ -42,6 +42,7 @@
             this.UserLB.Name = "UserLB";
             this.UserLB.Size = new System.Drawing.Size(269, 264);
             this.UserLB.TabIndex = 0;
+            this.UserLB.SelectedIndexChanged += new System.EventHandler(this.UserLB_SelectedIndexChanged);
             // 
             // BookLB
             // 

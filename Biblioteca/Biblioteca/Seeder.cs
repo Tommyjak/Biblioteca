@@ -10,7 +10,7 @@ namespace Biblioteca
     {
         private static string cod;
 
-        public static List<Utente> generateUtente()
+        public static List<Utente> generateUtente(List<Libro> libri)
         {
             List<Utente> utenti = new List<Utente>();
 
@@ -32,20 +32,20 @@ namespace Biblioteca
                     Random car = new Random();
                     cod = cod + caratteri[rnd.Next(0, 36)];
                 }
-                utenti.Add(new Utente(nomi[rnd.Next(0, 25)], cognomi[rnd.Next(0, 25)], cod, nasc));
+                utenti.Add(new Utente(nomi[rnd.Next(0, 25)], cognomi[rnd.Next(0, 25)], cod, nasc, libri[1] ));
             }
             return utenti;
 
         }
 
-            public static List<Libro> generateLibro()
+        public static List<Libro> generateLibro()
         {
             List<Libro> libri = new List<Libro>();
 
             string[] titoli1 = { "Il vecchio", "La palla", "Il Gabbiano", "La Peppa", "Beppe", "Giorgio Mastrota", "LeBron James", "Gianni morandi", "Manuel Mopu", "Il cacciavite" };
-            string[] titoli2 = { " dorme", " rimbalza", " starnazza", " sputa fuoco", " sussurra ai sassi", " e la padella", " schiaccia", " e la chitarra di ghisa", " e la piallatrice"};
-            string[] autori = { "Giacomo Leopardi", "Anonimo", "Dante Alighieri", "Piero Angela", "Francesco Petrarca", "Salvatore Aranzulla", "Giulio Cesare", "Socrate", "Ciro Immobile", "Tommaso Mortara"};
-            string[] numeri = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+            string[] titoli2 = { " dorme", " rimbalza", " starnazza", " sputa fuoco", " sussurra ai sassi", " e la padella", " schiaccia", " e la chitarra di ghisa", " e la piallatrice" };
+            string[] autori = { "Giacomo Leopardi", "Anonimo", "Dante Alighieri", "Piero Angela", "Francesco Petrarca", "Salvatore Aranzulla", "Giulio Cesare", "Socrate", "Ciro Immobile", "Tommaso Mortara" };
+            string[] numeri = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
             Random rnd = new Random();
 
             for (int i = 0; i < 100; i++)
@@ -56,9 +56,16 @@ namespace Biblioteca
                     Random car = new Random();
                     cod = cod + numeri[rnd.Next(0, 10)];
                 }
-                libri.Add(new Libro(titoli1[rnd.Next(0, 9)]+titoli2[rnd.Next(0, 9)], autori[rnd.Next(0, 9)], cod));
+                libri.Add(new Libro(titoli1[rnd.Next(0, 9)] + titoli2[rnd.Next(0, 9)], autori[rnd.Next(0, 9)], cod));
             }
             return libri;
+         }
+
+        public static List<Libro> generateLibriPosseduti(List<Libro> libri, List<Utente> utenti)
+        {
+           List<Libro> libriPosseduti = new List<Libro>();
+           utenti[1].libriPosseduti.Add(libri[1]);
+           return libriPosseduti;
         }
     }
 }

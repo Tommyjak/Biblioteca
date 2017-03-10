@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,6 +7,8 @@ namespace Biblioteca
 {
     class Utente
     {
+        public List<Libro> libriPosseduti;
+
         private string _nome;
         public string nome { get { return _nome; } }
 
@@ -20,7 +23,7 @@ namespace Biblioteca
 
         //public List<Libro> = libriUtente;
 
-        public Utente (string nome, string cognome, string codFisc, DateTime dataNascita)
+        public Utente (string nome, string cognome, string codFisc, DateTime dataNascita, Libro libriPosseduti)
         {
             _nome = nome;
             _cognome = cognome;
@@ -37,7 +40,7 @@ namespace Biblioteca
 
         public string describeSeeder()
         {
-            string output = nome + " " + cognome + " " + dataNascita + " " + codFisc + " " + "Numero di libri posseduti: " + "(Index lista libriUtente)";
+            string output = nome + " " + cognome + " " + dataNascita.Date + " " + codFisc + " " + "Numero di libri posseduti: " + "(Index lista libriUtente)";
             return output; // errore del codice fiscale da discutere e della data di nascita che fatico a comprendere.
         }
 
