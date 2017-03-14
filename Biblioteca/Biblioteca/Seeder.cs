@@ -10,6 +10,11 @@ namespace Biblioteca
     {
         private static string cod;
 
+        /*public static List<Libro> generateLibriPosseduti()
+        {
+
+        }*/
+
         public static List<Utente> generateUtente(List<Libro> libri)
         {
             List<Utente> utenti = new List<Utente>();
@@ -60,12 +65,5 @@ namespace Biblioteca
             }
             return libri;
          }
-
-        public static List<Libro> generateLibriPosseduti(List<Libro> libri, List<Utente> utenti)
-        {
-           List<Libro> libriPosseduti = new List<Libro>();
-           utenti[1].libriPosseduti.Add(libri[1]);
-           return libriPosseduti;
-        }
     }
 }

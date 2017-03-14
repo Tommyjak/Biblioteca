@@ -23,8 +23,7 @@ namespace Biblioteca
         private string _isbn;
         public string isbn { get { return _isbn; } }
 
-        private Boolean prestatoLibro = true;
-        //public Boolean prestatoLibro {get { return; }}//devo ancora guardare bene come si fa 
+        private Boolean prestatoLibro;
 
         Random rnd = new Random();
 
@@ -33,6 +32,7 @@ namespace Biblioteca
             _titolo = titolo;
             _autore = autore;
             _isbn = isbn;
+            prestatoLibro = true;
             //Console.WriteLine(describeLibro());
         }
 
@@ -76,18 +76,22 @@ namespace Biblioteca
             for (int j= 0; j < i; i++)
         }*/
 
-        public void presta(Utente u)
+        public string presta(Utente u)
         {
+            string output; 
+
             if (prestatoLibro == true)
             {
-                Console.WriteLine("Il prestito è andato a buon fine!");
+                output =("Il prestito è andato a buon fine per l'utente " + u.nome);
                 prestatoLibro = false;
+                //u.libriPosseduti.Add(this);
             }
             else
             {
-                Console.WriteLine("Spiacenti,il libro è già stato prestato a ");
+                output = ("Spiacenti,il libro è già stato prestato a ");
             }
 
+            return output;
         }
      
 

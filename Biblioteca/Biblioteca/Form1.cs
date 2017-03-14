@@ -40,15 +40,24 @@ namespace Biblioteca
             }
         }
 
-        private void UserLB_SelectedIndexChanged(object sender, EventArgs e)
+        /*private void UserLB_SelectedIndexChanged(object sender, EventArgs e)
         {
             BookLB.Items.Add(utenti[UserLB.SelectedIndex].libriPosseduti);
-        }
-
-
-        /* private void button3_Click(object sender, EventArgs e)
-        {
-            BookLB.SelectedItem.
         }*/
+
+
+        /*private void button3_Click(object sender, EventArgs e)
+        {
+            PrestaOut.Text = "kytfcyrf";
+            PrestaOut.Text += libri[BookLB.SelectedIndex].presta(utenti[UserLB.SelectedIndex]);
+            //string output = libri[BookLB.SelectedIndex] + "è stato prestato a " + utenti[UserLB.SelectedIndex];
+        }*/
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            PrestaOut.Text = "";
+            PrestaOut.Text += libri[BookLB.SelectedIndex].presta(utenti[UserLB.SelectedIndex]);
+            //string output = libri[BookLB.SelectedIndex] + "è stato prestato a " + utenti[UserLB.SelectedIndex];
+        }
     }
 }
