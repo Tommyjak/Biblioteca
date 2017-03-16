@@ -10,11 +10,6 @@ namespace Biblioteca
     {
         private static string cod;
 
-        /*public static List<Libro> generateLibriPosseduti()
-        {
-
-        }*/
-
         public static List<Utente> generateUtente(List<Libro> libri)
         {
             List<Utente> utenti = new List<Utente>();
@@ -34,7 +29,6 @@ namespace Biblioteca
                 cod = "";
                 for (int l = 0; l < 9; l++)
                 {
-                    Random car = new Random();
                     cod = cod + caratteri[rnd.Next(0, 36)];
                 }
                 utenti.Add(new Utente(nomi[rnd.Next(0, 25)], cognomi[rnd.Next(0, 25)], cod, nasc, libri[1] ));
@@ -53,15 +47,22 @@ namespace Biblioteca
             string[] numeri = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
             Random rnd = new Random();
 
+            int numGeneri = Enum.GetNames(typeof(Libro.genere)).Length;
+            Random genereInd = new Random();
+
             for (int i = 0; i < 100; i++)
             {
                 cod = "";
+                int k = genereInd.Next(numGeneri);
+                Libro.genere myGenere = (Libro.genere)k;
+
                 for (int l = 0; l < 13; l++)
                 {
                     Random car = new Random();
+
                     cod = cod + numeri[rnd.Next(0, 10)];
                 }
-                libri.Add(new Libro(titoli1[rnd.Next(0, 9)] + titoli2[rnd.Next(0, 9)], autori[rnd.Next(0, 9)], cod));
+                libri.Add(new Libro(titoli1[rnd.Next(0, 9)] + titoli2[rnd.Next(0, 9)], autori[rnd.Next(0, 9)], cod, myGenere));
             }
             return libri;
          }

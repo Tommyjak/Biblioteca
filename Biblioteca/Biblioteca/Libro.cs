@@ -18,6 +18,7 @@ namespace Biblioteca
         private string _autore;
         public string autore { get { return _autore; } }
 
+        private genere _genere;
         public enum genere { fantasy, rosa, avventura, bambini, classico, giallo, thriller, horror }
 
         private string _isbn;
@@ -27,18 +28,19 @@ namespace Biblioteca
 
         Random rnd = new Random();
 
-        public Libro(string titolo, string autore, string isbn)
+        public Libro(string titolo, string autore, string isbn, genere myGenere)
         {
             _titolo = titolo;
             _autore = autore;
             _isbn = isbn;
+            _genere = myGenere;
             prestatoLibro = true;
             //Console.WriteLine(describeLibro());
         }
 
         public string describeSeeder()
         {
-            string output = titolo + " / " + autore + " / " + isbn;
+            string output = titolo + " / " + autore + " / " + isbn + " / " + _genere;
             return output; // errore del codice fiscale da discutere e della data di nascita che fatico a comprendere.
         }
 
@@ -62,7 +64,7 @@ namespace Biblioteca
         {
             string output = "TITOLO: " + titolo + "\r\n";
                    output += "AUTORE: " + autore + "\r\n";
-                   output += "GENERE: " + genere.fantasy + "\r\n";//devo finire di guardare l'enum
+                   output += "GENERE: " + _genere + "\r\n";
                    output += "ISBN: " + isbn + "\r\n";
 
             return output;
@@ -84,7 +86,7 @@ namespace Biblioteca
             {
                 output =("Il prestito è andato a buon fine per l'utente " + u.nome);
                 prestatoLibro = false;
-                //u.libriPosseduti.Add(this);
+                u.libriPosseduti.Add(this);
             }
             else
             {
