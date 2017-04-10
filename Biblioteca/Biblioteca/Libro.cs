@@ -11,6 +11,8 @@ namespace Biblioteca
     class Libro
     {
         //string[] generiLibro = { "fantasy", "rosa", "avventura", "bambini", "classico", "giallo", "thriller", "horror" };
+        private Utente _possessore;
+        public Utente possessore { get { return _possessore; } }
 
         private string _titolo;
         public string titolo { get { return _titolo; } }
@@ -24,7 +26,8 @@ namespace Biblioteca
         private string _isbn;
         public string isbn { get { return _isbn; } }
 
-        private Boolean prestatoLibro;
+        private Boolean _prestatoLibro;
+        public Boolean prestatoLibro { get { return _prestatoLibro; } }
 
         Random rnd = new Random();
 
@@ -34,19 +37,19 @@ namespace Biblioteca
             _autore = autore;
             _isbn = isbn;
             _genere = myGenere;
-            prestatoLibro = true;
+            _prestatoLibro = true;
             //Console.WriteLine(describeLibro());
         }
 
-        public string describeSeeder()
+        /*public string describeSeeder()
         {
             string output = titolo + " / " + autore + " / " + isbn + " / " + _genere;
             return output; // errore del codice fiscale da discutere e della data di nascita che fatico a comprendere.
-        }
+        }*/
 
         public override string ToString()
         {
-            return (titolo + "," + autore + "," + isbn);
+            return (titolo + " ");
         }
 
        /* public void assignGenere()
@@ -70,28 +73,23 @@ namespace Biblioteca
             return output;
         }
 
-        /*public void prestaStandard(Utente u)
-        {
-            Random rnd = new Random();
-            int i = rnd.Next(0, 10);
-
-            for (int j= 0; j < i; i++)
-        }*/
-
         public string presta(Utente u)
         {
             string output; 
 
-            if (prestatoLibro == true)
+            if (prestatoLibro == false)
             {
-                output =("Il prestito è andato a buon fine per l'utente " + u.nome);
-                prestatoLibro = false;
-                u.libriPosseduti.Add(this);
+                throw new Exception("Il libro è già stato prestato");
             }
-            else
+            if (u.libriPosseduti.Count > 6)
             {
-                output = ("Spiacenti,il libro è già stato prestato a ");
+                throw new Exception("L'utente ha già raggiunto il numero massimo di libri");
             }
+
+            _possessore = u;
+            output = ("Il prestito è andato a buon fine per l'utente " + _possessore.nome);
+            _prestatoLibro = false;
+            _possessore.libriPosseduti.Add(this);
 
             return output;
         }

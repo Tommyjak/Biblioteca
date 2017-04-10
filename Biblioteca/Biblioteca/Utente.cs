@@ -7,7 +7,7 @@ namespace Biblioteca
 {
     class Utente
     {
-        public List<Libro> libriPosseduti;
+        public List<Libro> libriPosseduti= new List<Libro>();
 
         private string _nome;
         public string nome { get { return _nome; } }
@@ -23,7 +23,7 @@ namespace Biblioteca
 
         //public List<Libro> = libriUtente;
 
-        public Utente (string nome, string cognome, string codFisc, DateTime dataNascita, Libro libriPosseduti)
+        public Utente (string nome, string cognome, string codFisc, DateTime dataNascita)
         {
             _nome = nome;
             _cognome = cognome;
@@ -34,17 +34,17 @@ namespace Biblioteca
 
         public override string ToString()
         {
-            return (nome + ", " + cognome + ", " + dataNascita + ".");
+            return (nome + " " + cognome );
         }
 
 
-        public string describeSeeder()
+        /*public string describeSeeder()
         {
             string output = nome + " " + cognome + " " + dataNascita.Date + " " + codFisc + " " + "Numero di libri posseduti: " + "(Index lista libriUtente)";
             return output; // errore del codice fiscale da discutere e della data di nascita che fatico a comprendere.
-        }
+        }*/
 
-        public string describe()
+        public string describeUtente()
         {
             string output = "Nome: " + nome + ";\r\n";
                    output += "Cognome: "+ cognome + ";\r\n";
@@ -57,7 +57,13 @@ namespace Biblioteca
 
         public string describeLibriUtente()
         {
-            string output = "Descrizione lista libriUtente";
+            int j = libriPosseduti.Count;
+
+            string output = this.ToString() + "possiede i seguenti libri: \r\n";
+            for (int i=0; i < j; i++)
+            {
+                output += libriPosseduti[i].ToString()+ System.Environment.NewLine;
+            }
             return output;
         }
     }

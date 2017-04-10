@@ -30,10 +30,11 @@
         {
             this.UserLB = new System.Windows.Forms.ListBox();
             this.BookLB = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.infoBook = new System.Windows.Forms.Button();
+            this.infoUser = new System.Windows.Forms.Button();
             this.PrestaOut = new System.Windows.Forms.TextBox();
+            this.infoBox = new System.Windows.Forms.TextBox();
+            this.prestaButt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UserLB
@@ -51,38 +52,28 @@
             this.BookLB.HorizontalScrollbar = true;
             this.BookLB.Location = new System.Drawing.Point(559, 24);
             this.BookLB.Name = "BookLB";
-            this.BookLB.Size = new System.Drawing.Size(142, 264);
+            this.BookLB.Size = new System.Drawing.Size(160, 264);
             this.BookLB.TabIndex = 1;
             // 
-            // button1
+            // infoBook
             // 
-            this.button1.Location = new System.Drawing.Point(99, 324);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.infoBook.Location = new System.Drawing.Point(608, 324);
+            this.infoBook.Name = "infoBook";
+            this.infoBook.Size = new System.Drawing.Size(75, 23);
+            this.infoBook.TabIndex = 2;
+            this.infoBook.Text = "infoBook";
+            this.infoBook.UseVisualStyleBackColor = true;
+            this.infoBook.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // infoUser
             // 
-            this.button2.Location = new System.Drawing.Point(527, 324);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(341, 323);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 24);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.infoUser.Location = new System.Drawing.Point(62, 324);
+            this.infoUser.Name = "infoUser";
+            this.infoUser.Size = new System.Drawing.Size(75, 23);
+            this.infoUser.TabIndex = 3;
+            this.infoUser.Text = "infoUser";
+            this.infoUser.UseVisualStyleBackColor = true;
+            this.infoUser.Click += new System.EventHandler(this.button2_Click);
             // 
             // PrestaOut
             // 
@@ -92,19 +83,39 @@
             this.PrestaOut.Size = new System.Drawing.Size(169, 264);
             this.PrestaOut.TabIndex = 5;
             // 
+            // infoBox
+            // 
+            this.infoBox.Location = new System.Drawing.Point(12, 364);
+            this.infoBox.Multiline = true;
+            this.infoBox.Name = "infoBox";
+            this.infoBox.Size = new System.Drawing.Size(689, 180);
+            this.infoBox.TabIndex = 6;
+            // 
+            // prestaButt
+            // 
+            this.prestaButt.Location = new System.Drawing.Point(347, 324);
+            this.prestaButt.Name = "prestaButt";
+            this.prestaButt.Size = new System.Drawing.Size(75, 23);
+            this.prestaButt.TabIndex = 7;
+            this.prestaButt.Text = "presta";
+            this.prestaButt.UseVisualStyleBackColor = true;
+            this.prestaButt.Click += new System.EventHandler(this.prestaButt_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 433);
+            this.ClientSize = new System.Drawing.Size(770, 556);
+            this.Controls.Add(this.prestaButt);
+            this.Controls.Add(this.infoBox);
             this.Controls.Add(this.PrestaOut);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.infoUser);
+            this.Controls.Add(this.infoBook);
             this.Controls.Add(this.BookLB);
             this.Controls.Add(this.UserLB);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,11 +123,12 @@
 
         #endregion
         private System.Windows.Forms.ListBox BookLB;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button infoBook;
+        private System.Windows.Forms.Button infoUser;
         private System.Windows.Forms.ListBox UserLB;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox PrestaOut;
+        private System.Windows.Forms.TextBox infoBox;
+        private System.Windows.Forms.Button prestaButt;
     }
 }
 

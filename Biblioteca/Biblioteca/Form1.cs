@@ -12,51 +12,86 @@ namespace Biblioteca
 {
     public partial class Form1 : Form
     {
-        private List<Libro> libriPosseduti;
         private List<Utente> utenti;
         private List<Libro> libri;
         public Form1()
         {
             libri = Seeder.generateLibro();
-            utenti = Seeder.generateUtente(libri);
+            utenti = Seeder.generateUtente();
+            //Seeder.associa();
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 300; i++)
+            {
+                UserLB.Items.Add(utenti[i].ToString());
+            }
+
+            for (int i = 0; i < 100; i++)
+            {
+                /*if (libri[i].prestatoLibro == false)
+                {
+                    //scrivi in rosso
+                }*/
+                BookLB.Items.Add(libri[i].ToString());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 300; i++)
+            Libro b =libri[BookLB.SelectedIndex] as Libro;
+
+            if (b == null)
             {
-                UserLB.Items.Add(utenti[i].describeSeeder());
+                MessageBox.Show("Selezionare almeno un libro", "Selezionare un libro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                infoBox.Text = b.describeLibro();
+                return;
             }
         }
-
-        //Libro l = new Libro("Amore", "J.J.Reddick", "INTH232J1"); *solo di prova*
 
         private void button2_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 100; i++)
+            Utente u = UserLB.SelectedItem as Utente;
+            if (u == null)
             {
-                BookLB.Items.Add(libri[i].describeSeeder());
+                MessageBox.Show("Selezionare almeno un utente", "Selezionare un utente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                infoBox.Text = u.describeUtente();
+                return;
             }
         }
 
-        /*private void UserLB_SelectedIndexChanged(object sender, EventArgs e)
+        private void prestaButt_Click(object sender, EventArgs e)
         {
-            BookLB.Items.Add(utenti[UserLB.SelectedIndex].libriPosseduti);
-        }*/
+            Utente u = UserLB.SelectedItem as Utente;
+            Libro b = BookLB.SelectedItem as Libro;
 
+            if (b==null || u == null)
+            {
+                MessageBox.Show("Selezionare un utente e un libro", "Selezionare un utente e un libro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    PrestaOut.Text = b.presta(u);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message, "Attenzione!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
 
-        /*private void button3_Click(object sender, EventArgs e)
-        {
-            PrestaOut.Text = "kytfcyrf";
-            PrestaOut.Text += libri[BookLB.SelectedIndex].presta(utenti[UserLB.SelectedIndex]);
-            //string output = libri[BookLB.SelectedIndex] + "è stato prestato a " + utenti[UserLB.SelectedIndex];
-        }*/
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            PrestaOut.Text = "";
-            PrestaOut.Text += libri[BookLB.SelectedIndex].presta(utenti[UserLB.SelectedIndex]);
             //string output = libri[BookLB.SelectedIndex] + "è stato prestato a " + utenti[UserLB.SelectedIndex];
         }
     }

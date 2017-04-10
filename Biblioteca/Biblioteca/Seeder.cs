@@ -9,10 +9,14 @@ namespace Biblioteca
     static class Seeder
     {
         private static string cod;
+        private static List<Utente> listaUtenti = new List<Utente>();
+        private static List<Libro> listaLibri = new List<Libro>();
 
-        public static List<Utente> generateUtente(List<Libro> libri)
+
+        public static List<Utente> generateUtente()
         {
             List<Utente> utenti = new List<Utente>();
+            Utente utente;
 
             string[] nomi = { "Gionni", "Giorgio", "Russell", "Steph", "Beppe", "Giuvà", "Pino", "Arnaldo", "Gisella", "Beatrice", "Gionna", "Manuel", "LeBron", "Klay", "Maria", "Sigfrido", "Gioachino", "Brambilla", "Calogero", "Michael", "J.J.", "Luigi", "Sara", "Gregoria", "Kevin" };
             string[] cognomi = { "Leone", "Busanelli", "Ovestbrook", "Curry", "Vessicchio", "Rossi", "Abete", "Birindelli", "Pelù", "Soncini", "Mortara", "Mopu", "James", "Thompson", "Gonzaga", "Nebbiante", "Da Reggio", "Fumagalli", "Scalabrine", "Jordan", "Aradori", "Buffon", "De Gregori", "Da Lentini", "Durant" };
@@ -31,7 +35,10 @@ namespace Biblioteca
                 {
                     cod = cod + caratteri[rnd.Next(0, 36)];
                 }
-                utenti.Add(new Utente(nomi[rnd.Next(0, 25)], cognomi[rnd.Next(0, 25)], cod, nasc, libri[1] ));
+                utente = new Utente(nomi[rnd.Next(0, 25)], cognomi[rnd.Next(0, 25)], cod, nasc);
+                utenti.Add(utente);
+                listaUtenti.Add(utente);
+
             }
             return utenti;
 
@@ -40,6 +47,7 @@ namespace Biblioteca
         public static List<Libro> generateLibro()
         {
             List<Libro> libri = new List<Libro>();
+            Libro libro;
 
             string[] titoli1 = { "Il vecchio", "La palla", "Il Gabbiano", "La Peppa", "Beppe", "Giorgio Mastrota", "LeBron James", "Gianni morandi", "Manuel Mopu", "Il cacciavite" };
             string[] titoli2 = { " dorme", " rimbalza", " starnazza", " sputa fuoco", " sussurra ai sassi", " e la padella", " schiaccia", " e la chitarra di ghisa", " e la piallatrice" };
@@ -62,9 +70,35 @@ namespace Biblioteca
 
                     cod = cod + numeri[rnd.Next(0, 10)];
                 }
-                libri.Add(new Libro(titoli1[rnd.Next(0, 9)] + titoli2[rnd.Next(0, 9)], autori[rnd.Next(0, 9)], cod, myGenere));
+                libro = new Libro(titoli1[rnd.Next(0, 9)] + titoli2[rnd.Next(0, 9)], autori[rnd.Next(0, 9)], cod, myGenere);
+                libri.Add(libro);
+                listaLibri.Add(libro);
             }
             return libri;
-         }
+        }
     }
 }
+
+        /*public static void associa()//associa ai primi 10 utenti dieci libri scelti casualmente senza ripetizioni
+        {
+            int i;
+            Random rnd = new Random();
+            List<int> indLibriEstratti = new List<int>();
+            int j;
+
+            for (i=0; i<10; i++)
+            {
+                do
+                {
+                    j= rnd.Next(101);
+                } while (indLibriEstratti.Contains(j));//per evitare le ripetizioni
+
+                indLibriEstratti.Add(j);
+                string output = listaLibri[j].presta(listaUtenti[i]); 
+                Console.WriteLine(output+j);
+
+
+            }
+        }
+    }*/
+
