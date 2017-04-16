@@ -81,7 +81,7 @@ namespace Biblioteca
             {
                 throw new Exception("Il libro è già stato prestato");
             }
-            if (u.libriPosseduti.Count > 6)
+            if (u.libriPosseduti.Count >= 6)
             {
                 throw new Exception("L'utente ha già raggiunto il numero massimo di libri");
             }

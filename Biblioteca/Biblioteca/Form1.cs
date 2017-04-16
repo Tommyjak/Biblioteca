@@ -41,15 +41,15 @@ namespace Biblioteca
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Libro b =libri[BookLB.SelectedIndex] as Libro;
 
-            if (b == null)
+            if (BookLB.SelectedIndex == -1)
             {
                 MessageBox.Show("Selezionare almeno un libro", "Selezionare un libro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else
             {
+                Libro b = libri[BookLB.SelectedIndex] as Libro;
                 infoBox.Text = b.describeLibro();
                 return;
             }
@@ -57,14 +57,14 @@ namespace Biblioteca
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Utente u = UserLB.SelectedItem as Utente;
-            if (u == null)
+            if (UserLB.SelectedIndex == -1)
             {
                 MessageBox.Show("Selezionare almeno un utente", "Selezionare un utente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else
             {
+                Utente u = utenti[UserLB.SelectedIndex] as Utente;
                 infoBox.Text = u.describeUtente();
                 return;
             }
@@ -72,10 +72,7 @@ namespace Biblioteca
 
         private void prestaButt_Click(object sender, EventArgs e)
         {
-            Utente u = UserLB.SelectedItem as Utente;
-            Libro b = BookLB.SelectedItem as Libro;
-
-            if (b==null || u == null)
+            if (BookLB.SelectedIndex == -1 || UserLB.SelectedIndex == -1)
             {
                 MessageBox.Show("Selezionare un utente e un libro", "Selezionare un utente e un libro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -84,6 +81,8 @@ namespace Biblioteca
             {
                 try
                 {
+                    Utente u = utenti[UserLB.SelectedIndex] as Utente;
+                    Libro b = libri[BookLB.SelectedIndex] as Libro;
                     PrestaOut.Text = b.presta(u);
                 }
                 catch (Exception error)
