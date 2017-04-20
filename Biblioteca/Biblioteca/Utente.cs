@@ -21,8 +21,6 @@ namespace Biblioteca
         private DateTime _dataNascita;
         public DateTime dataNascita { get; set; }
 
-        //public List<Libro> = libriUtente;
-
         public Utente (string nome, string cognome, string codFisc, DateTime dataNascita)
         {
             _nome = nome;
@@ -37,20 +35,12 @@ namespace Biblioteca
             return (nome + " " + cognome );
         }
 
-
-        /*public string describeSeeder()
-        {
-            string output = nome + " " + cognome + " " + dataNascita.Date + " " + codFisc + " " + "Numero di libri posseduti: " + "(Index lista libriUtente)";
-            return output; // errore del codice fiscale da discutere e della data di nascita che fatico a comprendere.
-        }*/
-
         public string describeUtente()
         {
             string output = "Nome: " + nome + ";"+ System.Environment.NewLine;
                    output += "Cognome: "+ cognome + ";" + System.Environment.NewLine;
                    output += "Data di Nascita: " + dataNascita.ToShortDateString() + ";" + System.Environment.NewLine;
                    output += "Codice Fiscale: " + codFisc + ";" + System.Environment.NewLine;
-                   output += "Numero di libri posseduti: " + "(Index lista libriUtente)" + ";" + System.Environment.NewLine;
 
             return output;
         }

@@ -18,23 +18,19 @@ namespace Biblioteca
         {
             libri = Seeder.generateLibro();
             utenti = Seeder.generateUtente();
-            //Seeder.associa();
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 300; i++)
+            for (int i = 0; i < 20; i++)
             {
                 UserLB.Items.Add(utenti[i].ToString());
             }
 
+
             for (int i = 0; i < 100; i++)
             {
-                /*if (libri[i].prestatoLibro == false)
-                {
-                    //scrivi in rosso
-                }*/
                 BookLB.Items.Add(libri[i].ToString());
             }
         }
@@ -91,7 +87,6 @@ namespace Biblioteca
                 }
             }
 
-            //string output = libri[BookLB.SelectedIndex] + "è stato prestato a " + utenti[UserLB.SelectedIndex];
         }
     }
 }

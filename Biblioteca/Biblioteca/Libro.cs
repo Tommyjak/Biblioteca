@@ -10,10 +10,6 @@ namespace Biblioteca
 {
     class Libro
     {
-        //string[] generiLibro = { "fantasy", "rosa", "avventura", "bambini", "classico", "giallo", "thriller", "horror" };
-        private Utente _possessore;
-        public Utente possessore { get { return _possessore; } }
-
         private string _titolo;
         public string titolo { get { return _titolo; } }
 
@@ -29,7 +25,8 @@ namespace Biblioteca
         private Boolean _prestatoLibro;
         public Boolean prestatoLibro { get { return _prestatoLibro; } }
 
-        Random rnd = new Random();
+        private Utente _possessore;
+        public Utente possessore { get { return _possessore; } }
 
         public Libro(string titolo, string autore, string isbn, genere myGenere)
         {
@@ -38,30 +35,12 @@ namespace Biblioteca
             _isbn = isbn;
             _genere = myGenere;
             _prestatoLibro = true;
-            //Console.WriteLine(describeLibro());
         }
-
-        /*public string describeSeeder()
-        {
-            string output = titolo + " / " + autore + " / " + isbn + " / " + _genere;
-            return output; // errore del codice fiscale da discutere e della data di nascita che fatico a comprendere.
-        }*/
 
         public override string ToString()
         {
             return (titolo + " ");
         }
-
-       /* public void assignGenere()
-        {
-            genere g;
-            string genereString;
-
-            switch (g)
-            {
-
-            }
-        }*/
 
         public string describeLibro()
         {

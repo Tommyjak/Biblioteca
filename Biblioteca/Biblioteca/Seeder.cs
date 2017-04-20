@@ -29,11 +29,11 @@ namespace Biblioteca
                 cod = "";
                 for (int l = 0; l < 9; l++)
                 {
-                    cod = cod + caratteri[rnd.Next(0, 36)];
+                    cod += caratteri[rnd.Next(0, 36)];
                 }
                 DateTime nasc = new DateTime(rnd.Next(1940, 2002), rnd.Next(1, 12), rnd.Next(1, 28));
                 Console.WriteLine(nasc.ToShortDateString());
-                utente = new Utente(nomi[rnd.Next(0, 25)], cognomi[rnd.Next(0, 25)], cod, nasc);
+                utente = new Utente(nomi[rnd.Next(0, 25)], cognomi[rnd.Next(0, 25)], cod,nasc);
                 utenti.Add(utente);
                 listaUtenti.Add(utente);
 
@@ -76,27 +76,3 @@ namespace Biblioteca
         }
     }
 }
-
-        /*public static void associa()//associa ai primi 10 utenti dieci libri scelti casualmente senza ripetizioni
-        {
-            int i;
-            Random rnd = new Random();
-            List<int> indLibriEstratti = new List<int>();
-            int j;
-
-            for (i=0; i<10; i++)
-            {
-                do
-                {
-                    j= rnd.Next(101);
-                } while (indLibriEstratti.Contains(j));//per evitare le ripetizioni
-
-                indLibriEstratti.Add(j);
-                string output = listaLibri[j].presta(listaUtenti[i]); 
-                Console.WriteLine(output+j);
-
-
-            }
-        }
-    }*/
-
