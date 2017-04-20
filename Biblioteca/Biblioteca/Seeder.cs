@@ -23,10 +23,6 @@ namespace Biblioteca
             string[] caratteri = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
             Random rnd = new Random();
-            Random day = new Random();
-            Random month = new Random();
-            Random year = new Random();
-            DateTime nasc = new DateTime(year.Next(1940, 2002), month.Next(1, 12), day.Next(1, 28));
 
             for (int i = 0; i < 300; i++)
             {
@@ -35,6 +31,8 @@ namespace Biblioteca
                 {
                     cod = cod + caratteri[rnd.Next(0, 36)];
                 }
+                DateTime nasc = new DateTime(rnd.Next(1940, 2002), rnd.Next(1, 12), rnd.Next(1, 28));
+                Console.WriteLine(nasc.ToShortDateString());
                 utente = new Utente(nomi[rnd.Next(0, 25)], cognomi[rnd.Next(0, 25)], cod, nasc);
                 utenti.Add(utente);
                 listaUtenti.Add(utente);

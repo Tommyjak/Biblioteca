@@ -65,10 +65,10 @@ namespace Biblioteca
 
         public string describeLibro()
         {
-            string output = "TITOLO: " + titolo + "\r\n";
-                   output += "AUTORE: " + autore + "\r\n";
-                   output += "GENERE: " + _genere + "\r\n";
-                   output += "ISBN: " + isbn + "\r\n";
+            string output = "TITOLO: " + titolo + System.Environment.NewLine;
+                   output += "AUTORE: " + autore + System.Environment.NewLine;
+                   output += "GENERE: " + _genere + System.Environment.NewLine;
+                   output += "ISBN: " + isbn + System.Environment.NewLine;
 
             return output;
         }
@@ -83,13 +83,14 @@ namespace Biblioteca
             }
             if (u.libriPosseduti.Count >= 6)
             {
-                throw new Exception("L'utente ha già raggiunto il numero massimo di libri");
+                throw new Exception("L'utente ha già raggiunto il numero massimo di libri ");
             }
 
             _possessore = u;
-            output = ("Il prestito è andato a buon fine per l'utente " + _possessore.nome);
             _prestatoLibro = false;
             _possessore.libriPosseduti.Add(this);
+            output = ("Il prestito è andato a buon fine per l'utente " + _possessore.nome)+ System.Environment.NewLine + _possessore.describeLibriUtente();
+            
 
             return output;
         }

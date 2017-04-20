@@ -46,11 +46,11 @@ namespace Biblioteca
 
         public string describeUtente()
         {
-            string output = "Nome: " + nome + ";\r\n";
-                   output += "Cognome: "+ cognome + ";\r\n";
-                   output += "Data di Nascita: " + dataNascita + ";\r\n";
-                   output += "Codice Fiscale: " + codFisc + ";\r\n";
-                   output += "Numero di libri posseduti: " + "(Index lista libriUtente)" + ";\r\n";
+            string output = "Nome: " + nome + ";"+ System.Environment.NewLine;
+                   output += "Cognome: "+ cognome + ";" + System.Environment.NewLine;
+                   output += "Data di Nascita: " + dataNascita.ToShortDateString() + ";" + System.Environment.NewLine;
+                   output += "Codice Fiscale: " + codFisc + ";" + System.Environment.NewLine;
+                   output += "Numero di libri posseduti: " + "(Index lista libriUtente)" + ";" + System.Environment.NewLine;
 
             return output;
         }
@@ -59,7 +59,7 @@ namespace Biblioteca
         {
             int j = libriPosseduti.Count;
 
-            string output = this.ToString() + "possiede i seguenti libri: \r\n";
+            string output = this.ToString() + " possiede i seguenti libri: " + System.Environment.NewLine;
             for (int i=0; i < j; i++)
             {
                 output += libriPosseduti[i].ToString()+ System.Environment.NewLine;
